@@ -6,6 +6,7 @@ export const lightColors = {
     text: ScreenMode.black,
     statusBar: ScreenMode.white, 
     buttonBackground: ScreenMode.red, 
+    commonWhite:ScreenMode.white, 
   };
   
   // Define colors for dark mode
@@ -14,4 +15,5 @@ export const lightColors = {
     text: ScreenMode.white,
     statusBar: ScreenMode.black, 
     buttonBackground: ScreenMode.green, 
+    commonWhite:ScreenMode.white, 
   };

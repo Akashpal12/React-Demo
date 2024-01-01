@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, useColorScheme, TouchableOpacity, Dimensions,Sa
 import { lightColors, darkColors } from '../constants/ScreenMode.js'; // Import color schemes
 import CustomStatusBar from '../components/Statusbar.js'; // Renamed the custom StatusBar component
 
+
 const HomeScreen = ({ navigation }) => {
     const colorScheme = useColorScheme();
     const isDarkMode = colorScheme === 'dark';
@@ -18,28 +19,30 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         
-        
-        
-        <View style={[styles.container, { backgroundColor: colors.background }]}>
+    
+        <View style={[
+            styles.container, 
+            { 
+            backgroundColor: colors.background 
+            }]}>
             <CustomStatusBar backgroundColor={colors.statusBar} barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             <View style={styles.buttonContainer}>
                 <Text style={[styles.text, { color: colors.text }]}>
                     Hello, this is an example of dark mode and light mode!
                 </Text>
 
-                <TouchableOpacity
-                  
+                <TouchableOpacity                
                   style={{
-                    backgroundColor: isDarkMode ? darkColors.buttonBackground : lightColors.buttonBackground,
+                    backgroundColor: colors.buttonBackground,
                     width: deviceWidth * 0.6,
                     height: deviceHeight * 0.055,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    borderRadius: 5,
+                    borderRadius: 35,
                 }}
                     onPress={handleButtonPress}
                 >
-                    <Text style={[styles.buttonText, { color: colors.te, textAlign: 'center' }]}>
+                    <Text style={[styles.buttonText, { color: colors.text, textAlign: 'center' }]}>
                         Go to Details
                     </Text>
                 </TouchableOpacity>
@@ -65,11 +68,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 20,
-    },
-    button: {
-        paddingVertical: 12,
-        paddingHorizontal: 24,
-        borderRadius: 5,
     },
     buttonText: {
         fontSize: 16,

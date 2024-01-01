@@ -1,13 +1,31 @@
 // DetailsScreen.js
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet ,useColorScheme} from 'react-native';
+import AppBar from '../components/AppBar.js'; // Import the AppBar component
+import { lightColors, darkColors } from '../constants/ScreenMode.js'; // Import color schemes
+
 
 const DetailsScreen = () => {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === 'dark';
+  const colors = isDarkMode ? darkColors : lightColors;
   return (
-    <View>
-      <Text>Details Screen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      {/* Use the AppBar component */}
+      <AppBar title="Details Screen" />
+      {/* Content */}
+      <View style={[styles.content, { backgroundColor:'white'}]}>
+        <Text style={{color:colors.background}}>Details Screen Content Goes Here</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 export default DetailsScreen;
